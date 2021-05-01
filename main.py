@@ -1,8 +1,6 @@
 from utl.lay import title, colour, line, options
 from utl.arch import readfloat, readint, grade, select, points, credits, all, calgpa, txt, gradeusa, allusa
 
-answer = ''
-arch = 'bigdate.txt'
 print('{}Hello, world.{}'.format('\033[34m', '\033[m'))
 title(f'GPA')
 nm = str(input('Your name: ')).strip().title()

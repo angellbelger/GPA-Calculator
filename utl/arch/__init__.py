@@ -41,37 +41,6 @@ def readint(msg):
         break
 
 
-def archiveexist(anything):
-    try:
-        a = open(anything, 'rt')
-        a.close()
-    except FileNotFoundError:
-        return False
-    else:
-        return True
-
-
-def creatarchive(anything):
-    try:
-        a = open(anything, 'wt+')
-        a.close()
-    except:
-        print('Sorry, we had a problem.')
-    else:
-        print(f'File {anything} created.')
-
-
-def readarchive(anything):
-    try:
-        a = open(anything, 'rt')
-    except:
-        print('Sorry, we had a problem while trying to open the file')
-    else:
-        print(a.read())
-    finally:
-        a.close()
-
-
 def calgpa(gpa=0):
     if gpa == 0:
         print(f"\nGPA: {colour['r']}{gpa:.2f}{colour['limit']} | Grade: {colour['r']}F{colour['limit']}")
