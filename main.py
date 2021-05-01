@@ -64,18 +64,6 @@ while True:
             allusa.append(gradeusa.copy())
             points.append(grade["points"])
             credits.append(grade["credits"])
-        answer = ''
-        while 'Y' in answer:
-            for k, i in enumerate(all):
-                print(f'{k} - {i}')
-            answer = str(input('Do you want to remove any subject [Y / N]? ')).strip().title()[0]
-            if answer == 'Y':
-                k = readint('Type a key: ')
-                del all[k]
-                del points[k]
-                del credits[k]
-            else:
-                print('...')
     elif opt == 3:
         print(txt)
         line(37)
