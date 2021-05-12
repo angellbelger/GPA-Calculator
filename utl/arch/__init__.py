@@ -1,19 +1,4 @@
 from utl.lay import colour
-nm = ''
-grade = {}
-gradeusa = {}
-select = ['subject', 'points', 'credits']
-points = []
-credits = []
-all = list()
-allusa = list()
-txt = '''
-         Olá, estou aqui para explicar o sistema.
-         Opcão 1 : Visualizar o que já foi adicionado até o momento.
-         Opcão 2 : Adicionar matérias, além das que já estão no sistema.
-         Opcão 3 : São instrucões, você está nela neste exato momento.
-         Opcão 4 : Metadados, informacões adicionadas em listas e dicionários.
-         Opcão 5 : Para sair.'''
 
 def readfloat(msg):
     while True:
@@ -39,7 +24,6 @@ def readint(msg):
         else:
             return x
         break
-
 
 def calgpa(gpa=0):
     if gpa == 0:

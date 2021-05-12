@@ -1,5 +1,5 @@
-colour = {'r': '\033[31m', 'g': '\033[32m', 'w': '\033[33m', 'b': '\033[34m', 'p': '\033[35m', 'c': '\033[36m', 'limit': '\033[m'}
-options = ['View List', 'Add', 'Instructions', 'Metadata ', 'Exit']
+colour = {'r': '\033[31m', 'g': '\033[32m', 'w': '\033[33m', 'b': '\033[34m', 'p': '\033[35m',
+ 'c': '\033[36m', 'limit': '\033[m'}
 
 
 def line(n=37):
