@@ -1,90 +1,39 @@
-from utl.lay import title, colour, line, options
-from utl.arch import readfloat, readint, grade, select, points, credits, all, calgpa, txt, gradeusa, allusa
+from utl.lay import title, line
+from utl.lay import colour as cl
+from utl.arch import readfloat, readint, calgpa
+from utl.obj import txt, all_data, options, data
 
-print('{}Hello, world.{}'.format('\033[34m', '\033[m'))
-title(f'GPA')
-nm = str(input('Your name: ')).strip().title()
-line()
+print('{}Hello, world{}'.format('\033[36m', '\033[m'))
+
+x = 0
 while True:
-    for k, i in enumerate(options):
-        print(f'{colour["b"]}{k + 1}{colour["limit"]} - {i}')
-    line(37)
-    opt = readint('Option: ')
-    if opt == 1:
-        #Show database
-        try:
-            title(nm, 87)
-            for i in select:
-                print(f'{colour["b"]}{i:<40}{colour["limit"]}', end='')
-            print('\n')
-            for c in allusa:
-                for i in c.values():
-                    i = str(i)
-                    if len(i) >= 30:
-                        i = str(f'{i}...')
-                    print(f'{i:<40}', end='')
-                print()
-            line(87)
-            gp = x = y = w = 0
-            omega = len(all)
-            for count in range(0, omega):
-                y = points[count] * credits[count]
-                x += y
-                w += credits[count]
-            gp = (x / w)
-            calgpa(gp)
-            line(87)
-        except:
-            print('')
-    elif opt == 2:
-        #add subject
-        a = readint('How many subject: ')
-        for c in range(1, a + 1):
-            line(30)
-            grade["subject"] = str(input(f'  {c}˚ Subject: ')).strip().title()[:30]
-            grade["points"] = readfloat('  Points: ')
-            gradeusa["subject"] = grade["subject"]
-            gradeusa["points"] = grade["points"]
-            if grade["points"] >= 9:
-                grade["points"] = 4
-            elif grade["points"] >= 7:
-                grade["points"] = 3
-            elif grade["points"] >= 5:
-                grade["points"] = 2
-            elif grade["points"] >= 3:
-                grade["points"] = 1
-            elif grade["points"] >= 0:
-                grade["points"] = 0
-            grade["credits"] = readfloat('  Credits: ')
-            gradeusa["credits"] = grade["credits"]
-            line(30)
-            all.append(grade.copy())
-            allusa.append(gradeusa.copy())
-            points.append(grade["points"])
-            credits.append(grade["credits"])
-    elif opt == 3:
+    title('GPA - Calculator')
+    for c in options:
+        x = x + 1
+        print(f'{cl["b"]}{x}{cl["limit"]} - {c}')
+    ask = readint('Option: ')
+    #show data base
+    if ask == 1:
+        for c in range(0, len(all_date)):
+            print(f'{all_data[c]}')
+    #add subject
+    elif ask == 2:
+        how_many = readint('How many subject do You want: ')
+        ok = True
+        while ok:
+            for c in range(1, how_many + 1):
+                data["Subject"] = str(input('Subject: ')).title()
+                data["Point"] = readint('Point: ')
+                data["Credit"] = readint('Credit: ')
+            print(data)
+            ask_data = str(input(f'It is ok [ {cl["b"]}Y | {cl["r"]}N{cl["limit"]} ]? ')).title()[0]
+
+    #tutorial
+    elif ask == 3:
         print(txt)
-        line(37)
-    elif opt == 4:
-        if len(all) == 0:
-            print('Empty.')
-            line()
-        else:
-            for k, i in enumerate(allusa):
-                print(f'{colour["b"]}{k}{colour["limit"]} - {i["subject"]} | Points: {i["points"]}. Credits: {i["credits"]}')
-            line()
-            x = str(input(f'Do you want to delete any subject [{colour["b"]}Y{colour["limit"]} / {colour["r"]}N{colour["limit"]}]: ')).strip().title()[0]
-            if x == 'Y':
-                key = readint('Matter key: ')
-                try:
-                    del all[key]
-                    del points[key]
-                    del credits[key]
-                    del allusa[key]
-                except:
-                    print('Invalid Command.')
-            line()
-    elif opt == 5:
+    #matadata
+    elif ask == 4:
+        print(my_data)
+    #exit
+    elif ask == 5:
         break
-    else:
-        print('Invalid command, please, try another option')
