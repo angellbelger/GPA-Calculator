@@ -8,6 +8,5 @@ txt = '''
          Opcão 4 : Metadados, informacões adicionadas em listas e dicionários.
          Opcão 5 : Para sair.'''
 
-all_data = ['1']
-
+all_data = []
 data = {}
