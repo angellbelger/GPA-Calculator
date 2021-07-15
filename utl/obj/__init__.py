@@ -12,5 +12,6 @@ Option 4: Metadata, information added to lists and dictionaries.
 Option 5: To exit. {cl["limit"]}\n\n'''
 
 allData = []
+allDatausa = []
 data = {}
 dataUSA = {}

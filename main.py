@@ -1,7 +1,7 @@
 from utl.lay import title, line
 from utl.lay import colour as cl
 from utl.arch import readfloat, readint, calgpa
-from utl.obj import txt, allData, options, data, dataUSA
+from utl.obj import txt, allData, options, data, dataUSA, allDatausa
 
 print('{}Hello, world{}'.format('\033[36m', '\033[m'))
 
@@ -14,7 +14,7 @@ while True:
         print(f'{cl["b"]}{x}{cl["limit"]} - {c}')
     ask = readint('\nOption: ')
 
-    #show data base
+    #show data base and calculate
     if ask == 1:
         if len(allData) == 0:
             print('Empty.')
@@ -26,15 +26,15 @@ while True:
                 print(f'{allData[c]["Subject"]:<27} {allData[c]["Point"]:<27} {allData[c]["Credit"]:<27}')
             line()
 
-            sumPoints = 0
+            numerator = 0
             lenData = len(allData)
             sumCredits = 0
             for c in range(0, lenData):
-                sumPoints += allData[c]["Point"]
+                numerator += allDatausa[c]["Point"] * allDatausa[c]["Credit"]
                 sumCredits += allData[c]["Credit"]
 
-            print(sumPoints)
-            calgpa()
+            gpa = numerator / sumCredits
+            calgpa(gpa)
 
     #add subject
     elif ask == 2:
@@ -57,6 +57,8 @@ while True:
                 elif data["Point"] < 3:
                     dataUSA = 0
                 data["Credit"] = readint('Credit: ')
+                dataUSA["Credit"] = data["Credit"]
+
                 print('\n')
                 line()
                 for k, v in data.items():
@@ -72,7 +74,9 @@ while True:
                 else:
                     print(f'\n{cl["c"]}Data registered.{cl["limit"]}\n')
                     allData.append(data.copy())
+                    allDatausa.append(dataUSA.copy())
                     data.clear()
+                    dataUSA.clear()
 
             ok = False
 
@@ -81,9 +85,10 @@ while True:
         print(txt)
         line()
 
-    #matadata
+    #matadata Show what is going on and remove anyway if you want
     elif ask == 4:
         print(allData)
+        print(allDatausa)
 
     #exit
     elif ask == 5:
