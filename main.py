@@ -20,11 +20,11 @@ while True:
             print('Empty.')
         
         else:
-            title('Your GPA', 57)
+            title('Your GPA', 62)
             print(f'{"Subject":<27} {"Point":<27} {"Credit":<27}\n')
             for c in range(0, len(allData)):
                 print(f'{allData[c]["Subject"]:<27} {allData[c]["Point"]:<27} {allData[c]["Credit"]:<27}')
-            line()
+            line(62)
 
             numerator = 0
             lenData = len(allData)
@@ -43,7 +43,9 @@ while True:
 
         while ok:
             for c in range(0, how_many):
-                data["Subject"] = str(input('Subject: ')).title()
+                data["Subject"] = str(input('Subject: ')).title().strip()
+                if len(data["Subject"]) >= 17:
+                    data["Subject"] = str(f'{data["Subject"][0:18]}...')
                 dataUSA["Subject"] = data["Subject"]
                 data["Point"] = readfloat('Point: ')
                 if data["Point"] >= 9:
@@ -87,8 +89,16 @@ while True:
 
     #matadata Show what is going on and remove anyway if you want
     elif ask == 4:
-        print(allData)
-        print(allDatausa)
+        line()
+        for index, value in enumerate(allData):
+            print(f'{index} - {value["Subject"]} | {"Point"} | {"Credit"}')
+        line()
+        answer = str(input(print(f'Do want to delete any subject [ {cl["b"]}Y{cl["limit"]} | {cl["r"]}N{cl["limit"]}]? '))).title().strip()
+        
+        if answer == 'Y':
+            key = readint('Type the code of the subject: ')
+            del allData[key]
+            del allDatausa[key]
 
     #exit
     elif ask == 5:
