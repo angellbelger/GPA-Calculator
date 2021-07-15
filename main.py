@@ -21,9 +21,17 @@ while True:
         
         else:
             title('Your GPA', 57)
+            print(f'{"Subject":<27} {"Point":<27} {"Credit":<27}\n')
             for c in range(0, len(all_data)):
                 print(f'{all_data[c]["Subject"]:<27} {all_data[c]["Point"]:<27} {all_data[c]["Credit"]:<27}')
             line()
+
+            sumPoints = 0
+            for c in range(0, len(all_data):
+                sumPoints += all_data[c]["Point"]
+
+            print(sumPoints)
+            calgpa()
 
     #add subject
     elif ask == 2:
