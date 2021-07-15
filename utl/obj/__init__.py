@@ -1,12 +1,14 @@
+from utl.lay import colour as cl
+
 options = ['View List', 'Add', 'Instructions', 'Metadata ', 'Exit']
 
-txt = '''
-         Olá, estou aqui para explicar o sistema.
-         Opcão 1 : Visualizar o que já foi adicionado até o momento.
-         Opcão 2 : Adicionar matérias, além das que já estão no sistema.
-         Opcão 3 : São instrucões, você está nela neste exato momento.
-         Opcão 4 : Metadados, informacões adicionadas em listas e dicionários.
-         Opcão 5 : Para sair.'''
+txt = f'''
+         {cl["b"]}Hi, I'm here to explain the system.
+          Option 1: View what has been added so far.
+          Option 2: Add stories in addition to those already in the system.
+          Option 3: These are instructions, you are in it right now.
+          Option 4: Metadata, information added to lists and dictionaries.
+          Option 5: To exit. {cl["limit"]}'''
 
 all_data = []
 data = {}

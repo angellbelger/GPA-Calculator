@@ -57,6 +57,7 @@ while True:
     #tutorial
     elif ask == 3:
         print(txt)
+        line()
 
     #matadata
     elif ask == 4:
