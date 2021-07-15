@@ -11,5 +11,6 @@ Option 3: These are instructions, you are in it right now.
 Option 4: Metadata, information added to lists and dictionaries.
 Option 5: To exit. {cl["limit"]}\n\n'''
 
-all_data = []
+allData = []
 data = {}
+dataUSA = {}
