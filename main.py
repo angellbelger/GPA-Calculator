@@ -5,6 +5,8 @@ from utl.obj import txt, allData, options, data, pointsUSA
 
 print('{}Hello, world{}'.format('\033[36m', '\033[m'))
 
+# PYINSTALLER
+
 x = 0
 while True:
     title('GPA - Calculator')
