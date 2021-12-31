@@ -14,7 +14,7 @@ while True:
         print(f'{cl["b"]}{x}{cl["limit"]} - {c}')
     ask = readint('\nOption: ')
 
-    #show data base and calculate
+    #show database and calculate
     if ask == 1:
         if len(allData) == 0:
             print('Empty.')
