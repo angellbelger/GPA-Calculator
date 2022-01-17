@@ -82,7 +82,7 @@ while True:
         print(txt)
         line()
 
-    #matadata Show what is going on and remove anyway if you want
+    #metadata Show what is going on and remove anyway if you want
     elif ask == 4:
         line()
         for index, value in enumerate(allData):
